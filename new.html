@@ -1,26 +1,24 @@
 <head>
 <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<script src="https://unpkg.com/aframe-charts-component/dist/aframe-charts-component.min.js"></script>
 </head>
 <body>
 <a-scene embedded arjs='sourceType: webcam;'>
-<!-- define your first marker -->
-<a-marker preset="hiro">
-<!-- here define the content to display on top of the marker -->
-8
-<a-sphere src="https://raw.githubusercontent.com/aframevr/sampleassets/master/assets/images/space/earth_atmos_4096.jpg" radius="0.5" position="0 0.5 0" segments-height="53"
-animation="property: rotation; dur: 10000; to: 0 360 0; easing: linear; loop: true">
-</a-sphere>
+<!-- simulate a json file -->
+<a-asset>
+<a-asset-item id="data" src='[
+9
+{"x": 1, "y": 2, "z": 0, "size": 1, "color": "#ff0000"},
+{"x": -2, "y": 1, "z": 1, "size": 1, "color": "#00ff00"},
+{"x": -1, "y": 1, "z": 2, "size": 1, "color": "#0000ff"},
+{"x": 2, "y": 3, "z": -3, "size": 1, "color": "#0000ff"},
+{"x": 1, "y": 2.5, "z": 3, "size": 1, "color": "#4CC3D9"}]'>
+</a-asset-item>
+</a-asset>
+<a-marker preset='kanji'>
+<a-entity charts="type: bar; dataPoints: #data; axis_length: 4"></a-entity>
 </a-marker>
-<!-- define your second marker -->
-<a-marker preset="kanji">
-<!-- here define the content to display on top of the marker -->
-<a-sphere src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg" radius="0.5" position="0 
-0.5 0" segments-height="53" animation="property: scale; dur: 1000; from: 1 1 1; to: 2 2 2; dir: alternate; easing: 
-easeInOutCirc; loop: true">
-</a-sphere>
-</a-marker>
-<!-- define the camera -->
 <a-entity camera></a-entity>
 </a-scene>
 </body>
