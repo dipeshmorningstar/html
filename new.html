@@ -1,37 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AR Bar Chart</title>
-  
-  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  <script src="https://unpkg.com/aframe-charts-component/dist/aframe-charts-component.min.js"></script>
-</head>
-<body>
-  <a-scene embedded arjs="sourceType: webcam;">
-    <!-- Asset definition with JSON data -->
-    <a-asset>
-      <a-asset-item id="data">
-        [
-          {"x": 1, "y": 2, "z": 0, "size": 1, "color": "#ff0000"},
-          {"x": -2, "y": 1, "z": 1, "size": 1, "color": "#00ff00"},
-          {"x": -1, "y": 1, "z": 2, "size": 1, "color": "#0000ff"},
-          {"x": 2, "y": 3, "z": -3, "size": 1, "color": "#0000ff"},
-          {"x": 1, "y": 2.5, "z": 3, "size": 1, "color": "#4CC3D9"}
-        ]
-      </a-asset-item>
-    </a-asset>
-
-    <!-- AR marker with bar chart -->
-    <a-marker preset="kanji">
-      <!-- Bar chart -->
-      <a-entity charts="type: bar; dataPoints: #data; axis_length: 4"></a-entity>
-    </a-marker>
-
-    <!-- Camera -->
-    <a-entity camera></a-entity>
-  </a-scene>
-</body>
+<html>
+ <head>
+ <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+ <script src="https://gftruj.github.io/webzamples/aframe/controls/oculus-thumbstickcontrols.js"></script>
+ </head>
+ <body>
+ <a-scene background="color: #000066">
+ <a-text value="Hello, World!" color="#AA145D" position="0 2 -3"></a-text>
+ <a-entity id="rig">
+ <a-camera position="0 1.6 0"></a-camera>
+ <a-entity oculus-touch-controls="hand: left" oculus-thumbstick-controls="adAxis:
+false; wsAxis: y; wsInverted: true; fly: true"></a-entity>
+ <a-entity oculus-touch-controls="hand: right" oculus-thumbstick-controls></aentity>
+ </a-entity>
+ </a-scene>
+ </body>
 </html>
